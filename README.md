@@ -7,6 +7,8 @@ in the folder where it is run. I threw it together quickly so there are likely b
 
 (intended for use with stable diffusion deforum local version)
 
+ps. I am very tired and will fix up a few small problems tomorrow
+
 ## instructions
 
 Ensure that you have the necessary dependencies per the imports, place the script in your output folder, and run it - voila!
