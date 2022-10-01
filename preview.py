@@ -1,4 +1,15 @@
-# Render Preview GUI Script
+# Render Preview Script - Proof of Concept - by ItsJames#0101
+#
+# I wrote this in one shot, so the only promise I make is that its not perfect!
+# In theory, you can drop this in an output folder and run it, and you should see a
+# nice little preview of the most recently created image that updates every few seconds.
+#
+# "It works on my machine!"
+#
+# No promises as to whether this impacts your performance or anything, little consideration
+# has been given to optimization at this point - just a proof of concept!
+#
+# Make sure you have the dependencies needed for the imports below.
 
 # imports
 import os
@@ -10,7 +21,7 @@ from datetime import datetime
 target_path = os.path.dirname(os.path.realpath(__file__)) + "\\"
 display_image_path = ""
 
-# convert a datetime to float
+# convert datetime to float
 def datetime_to_float(d):
     epoch = datetime.utcfromtimestamp(0)
     total_seconds = (d - epoch).total_seconds()
@@ -47,12 +58,13 @@ panel = tk.Label(root, image=display_image)
 panel.pack(side="bottom", fill="both", expand=1)
 
 
-# update cycle to update image on label
+# update cycle to update displayed image
 def update_clock():
     next_image_path = target_path + get_newest_img_filename()
     if not next_image_path == display_image_path:
         print("newer image found!")
         print("d: " + display_image_path + ", n: " + next_image_path)
+
         next_image = ImageTk.PhotoImage(Image.open(next_image_path))
 
         panel.configure(image=next_image)
